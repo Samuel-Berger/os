@@ -7,6 +7,9 @@ Guide via <https://os.phil-opp.com/>
 ## Somethings that might be needed
 
 ```sh
+
+sudo apt install qemu-system-x86
+
 rustup component add rust-src
 rustup target add thumbv7em-none-eabihf # Build to an embedded target.
 cargo build --target thumbv7em-none-eabihf
@@ -17,8 +20,12 @@ rustup toolchain install list
 rustup component add rust-src --toolchain nightly
 rustup component add rust-src --toolchain nightly x86_64-samos
 rustup override set nightly
+rustup component add llvm-tools-preview
 
 cargo build --target x86_64-samos.json
+
+qemu-system-x86_64 -drive format=raw,file=bootimage-samos.bin
+
 ```
 
 ## Done
@@ -27,4 +34,4 @@ cargo build --target x86_64-samos.json
 
 ## Current
 
-<https://os.phil-opp.com/minimal-rust-kernel/>
+<https://os.phil-opp.com/minimal-rust-kernel/#printing-to-screen>

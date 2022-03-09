@@ -1,7 +1,8 @@
 [package]
 name = "samos"
 version = "0.1.0"
-edition = "2018"
+#edition = "2018"
+edition = "2021"
 authors = ["Samuel Berger"]
 
 # Disable stack unwinding.
@@ -12,6 +13,14 @@ panic = "abort"
 [profile.release]
 panic = "abort"
 
+#https://docs.rs/bootloader/latest/bootloader/
+#[package.metadata.bootloader]
+#target = "x86_64-samos.json"
+#CARGO_MANIFEST_DIR = "./.cargo/config.toml"
+#package.metadata.bootloader.target = "x86_64-samos.json"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-#[dependencies]
+[dependencies]
+#bootloader = "0.10.12" #https://docs.rs/crate/bootloader/0.10.0
+bootloader = "0.9.22"
