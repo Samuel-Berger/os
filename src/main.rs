@@ -3,6 +3,8 @@
 
 use core::panic::PanicInfo;
 
+mod vga_buffer;
+
 /*  We are currently operating before main is used: crt0 -> start -> main
 fn main() {
 //    println!("Hello, world!");
@@ -11,6 +13,7 @@ fn main() {
 
 static HELLO: &[u8] = b"Hello World!";
 
+/*
 // Instead use our own entry point.
 #[no_mangle]    // Use _start and not a random name.
 pub extern "C" fn _start() -> !{
@@ -27,9 +30,16 @@ pub extern "C" fn _start() -> !{
 
     loop {}
 }
+*/
 
 #[panic_handler]
 fn panic(_info: &PanicInfo) -> ! {  // PanicInfo contains file and line for the panic.
     loop{}
 }
 
+#[no_mangle]
+pub extern "C" fn _start() -> ! {
+    vga_buffer::test_print();
+
+    loop {}
+}

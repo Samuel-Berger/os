@@ -31,7 +31,8 @@ qemu-system-x86_64 -drive format=raw,file=bootimage-samos.bin
 ## Done
 
 <https://os.phil-opp.com/freestanding-rust-binary/>
+<https://os.phil-opp.com/vga-text-mode/>
 
 ## Current
 
-<https://os.phil-opp.com/minimal-rust-kernel/#printing-to-screen>
+<https://os.phil-opp.com/vga-text-mode/>
